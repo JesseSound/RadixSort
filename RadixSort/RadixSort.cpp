@@ -11,10 +11,9 @@ int FindMaxValue(int array[], int arrLength) {
     return MaxValue;
 }
 
-void CountSort(int array[], int arrLength, int exp) {
-    const int n = arrLength;
-
-    std::vector<int> count(10, 0); // Only 10 digits
+void CountSort(int array[], int n, int exp)
+{
+    std::vector<int> count(n); // Only 10 digits
     std::vector<int> output(n);
 
     // Count occurrences of digits
@@ -47,12 +46,12 @@ void RadixSort(int arr[], int n, int MaxValue) {
 }
 
 int main() {
-    int arrayToSort[10] = { 0, 13, 5, 11, 20, 9, 8, 6, 7, 4 };
+    int arrayToSort[12] = { 0, 1, 500, 11, 20, 9, 8, 6, 7, 4, 69, 420 };
     const int arrLength = sizeof(arrayToSort) / sizeof(arrayToSort[0]);
     const int maxV = FindMaxValue(arrayToSort, arrLength);
 
     std::cout << "array before sort \n";
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < arrLength; i++) {
         std::cout << arrayToSort[i] << " ";
     }
     std::cout << std::endl;
@@ -60,7 +59,7 @@ int main() {
     RadixSort(arrayToSort, arrLength, maxV);
 
     std::cout << "array after sort \n";
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < arrLength; i++) {
         std::cout << arrayToSort[i] << " ";
     }
 }
